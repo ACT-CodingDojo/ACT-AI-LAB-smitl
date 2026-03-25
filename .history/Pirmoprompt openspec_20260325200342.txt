@@ -1,0 +1,20 @@
+
+/opsx-explore AiSommelier è un'applicazione web che mi aiuta a scegliere il giusto vino sulla base del pasto che andrò a consumare
+
+
+I'm entering explore mode for AiSommelier. Let me start by reading the explore skill and checking your workspace context.
+
+Finished with 3 steps
+Okay, you're bringing AiSommelier to explore—a web app for smart wine pairing. Fresh concept. Let me visualize what you're describing and dig into it.
+
+
+┌─────────────────────────────────────────┐│           USER'S JOURNEY                │├─────────────────────────────────────────┤│                                         ││  1. User enters meal details            ││     ▼                                   ││  2. AI analyzes food + preferences      ││     ▼                                   ││  3. AI recommends wines                 ││     ▼                                   ││  4. User explores options               ││                                         │└─────────────────────────────────────────┘
+I'm curious about a few threads:
+
+The "meal" ingredient - When you say "the meal I'm going to have," what does that mean in practice?
+
+Describe a specific dish? ("spaghetti al pomodoro", "grilled salmon")
+Pick cuisine type? ("Italian", "Asian")
+Add constraints? (budget, availability, dietary preferences)
+All of the above?
+What "choosing" means - Are 
