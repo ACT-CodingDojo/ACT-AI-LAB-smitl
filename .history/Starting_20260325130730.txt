@@ -1,0 +1,16 @@
+Fare un utente free su Github con la procedura guidata
+https://github.com
+Installazione VSCode (download e install)
+https://code.visualstudio.com/download
+Installazione node.js (download e install)
+https://nodejs.org/en/download
+
+Comandi per installare openspec da terminal di VSCode
+npm install -g @fission-ai/openspec@latest
+openspec --version
+
+Comandi per partire con openspec
+openspec init
+
+Altro
+Vite?
