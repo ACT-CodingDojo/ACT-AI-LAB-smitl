@@ -12,7 +12,8 @@ Progetto condiviso di specifica e analisi per Scrum Master
     npm install -g @fission-ai/openspec@latest
     openspec --version
 5. Comandi per partire con openspec
-    openspec init
+    openspec init/opsx-explore AiSommelier è un'applicazione web che mi aiuta a scegliere il giusto vino sulla base del pasto che andrò a consumare
+
 
 6. Altro
 Vite?
