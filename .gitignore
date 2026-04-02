@@ -54,7 +54,6 @@ packages/
 *.bak
 *.Backup
 *.BLOB
-*
 
 # JetBrains Rider
 .idea/
@@ -104,3 +103,8 @@ appsettings.*.json
 *.tmp
 *.temp
 *.log
+
+# Always track openspec content
+!openspec/
+!openspec/**
+!openspec/**/*.md
