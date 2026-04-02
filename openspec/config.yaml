@@ -1,20 +1,156 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  Project: AiSomellier
+  Tech stack:
+    - Backend: ASP.NET Core (C#)
+    - Frontend: TypeScript (modular, framework-agnostic or Blazor optional)
+    - Database: SQLite (dev) / SQL Server Express (prod-ready)
+  
+  Architectural principles:
+    - Domain-Driven Design (DDD)
+    - Clean Architecture (Ports & Adapters)
+    - Test-Driven Development (TDD)
+    - SOLID principles
+  
+  Domain overview:
+    Core purpose: suggest wine based on user context
+    
+    Core inputs:
+      - MealType (meat, fish, vegetarian, dessert)
+      - Occasion (casual, date, party)
+      - TimeOfDay (lunch, aperitif, dinner)
+      - Season (summer, winter, spring, autumn)
+    
+    Core output:
+      - WineSuggestion with explanation
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+    Strategic insight:
+      The domain logic (pairing rules) is the core asset and must remain isolated,
+      testable, and independent from infrastructure and UI.
+
+rules:
+  global:
+    - Always write tests BEFORE implementation (strict TDD)
+    - Domain layer must have ZERO external dependencies
+    - No business logic in controllers or UI
+    - Prefer immutability for domain entities
+    - Use value objects instead of primitives where meaningful
+    - Keep methods small, deterministic, and side-effect free
+    - Every feature must be traceable to a spec
+
+  architecture:
+    - Enforce Clean Architecture layers:
+        - Domain
+        - Application
+        - Infrastructure
+        - Presentation
+    - Dependencies must point inward only
+    - Use interfaces (ports) for all external dependencies
+    - No direct database access from Application layer
+
+  ddd:
+    - Define bounded context: WineRecommendation
+    - Use ubiquitous language consistently:
+        - Wine
+        - PairingRule
+        - SuggestionContext
+        - WineSuggestion
+    - Model core concepts explicitly:
+        - Entities: Wine
+        - ValueObjects: MealType, Occasion, Season, TimeOfDay
+        - DomainServices: WineRecommendationEngine
+    - Avoid anemic domain model
+    - Encapsulate business rules inside domain
+
+  tdd:
+    - Every domain rule must have unit tests
+    - Use Given-When-Then structure
+    - Tests must describe behavior, not implementation
+    - No production code without failing test
+    - Use integration tests only for:
+        - API endpoints
+        - persistence layer
+
+  clean_code:
+    - Max function length: 20 lines
+    - Max class size: 200 lines
+    - Use expressive naming (no abbreviations)
+    - Avoid boolean flags in methods
+    - Prefer composition over inheritance
+    - Remove dead code immediately
+
+  backend:
+    - Controllers must be thin (only orchestration)
+    - Use Application Services for use cases
+    - Return DTOs only from API layer
+    - Map Domain -> DTO explicitly (no magic mapping)
+
+  database:
+    - Database is NOT the source of truth for rules
+    - Store wines and metadata only
+    - Pairing rules must live in domain layer (code)
+    - Use repository pattern:
+        - IWineRepository
+    - Keep schema simple and normalized
+
+  frontend:
+    - UI must not contain business logic
+    - Use typed API contracts
+    - Separate view components from state management
+    - Optimize for clarity over cleverness
+
+artifacts:
+  domain_model:
+    - Define entities and value objects
+    - Include invariants and validation rules
+    - Must be framework-independent
+
+  application_services:
+    - Define use cases:
+        - SuggestWine
+    - Orchestrate domain logic
+    - No business rules here
+
+  domain_services:
+    - Implement WineRecommendationEngine
+    - Use rule-based scoring system
+    - Rules must be composable and testable
+
+  rules_engine:
+    - Each pairing rule must:
+        - Have a clear condition
+        - Return a score contribution
+    - Example:
+        - If MealType = Fish → prefer WhiteWine (+score)
+
+  api_contracts:
+    - Input DTO: SuggestWineRequest
+    - Output DTO: WineSuggestionResponse
+    - Must be versionable
+
+  tests:
+    unit:
+      - Domain entities
+      - Value objects
+      - Pairing rules
+      - Recommendation engine
+    
+    integration:
+      - API endpoints
+      - Repository implementation
+
+  seed_data:
+    - Provide initial wine dataset
+    - Include:
+        - name
+        - type (red, white, sparkling)
+        - body
+        - acidity
+    - Keep small but representative
+
+constraints:
+  - No ORM leakage into domain
+  - No static/global state
+  - No hidden magic (reflection-heavy logic discouraged)
+  - System must run locally with zero external dependencies
