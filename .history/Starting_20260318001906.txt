@@ -1,0 +1,12 @@
+Prerequisiti
+Node.js ≥ 20 installato (https://nodejs.org/en/download)
+VS Code (https://code.visualstudio.com/download)
+Github free con AI assistant
+
+Comandi per partire
+npm install -g @fission-ai/openspec@latest
+openspec --version
+openspec init
+
+Altro
+Vite?
