@@ -99,6 +99,10 @@ rules:
     - Use typed API contracts
     - Separate view components from state management
     - Optimize for clarity over cleverness
+    - After implementing any frontend feature, run the stupid-user agent to validate usability
+      and domain accuracy before considering the task done.
+      See agents.stupid_user — invoke with /stupid-user (Claude Code) or attach
+      .agents/stupid-user.md as context in other tools.
 
 artifacts:
   domain_model:
@@ -154,3 +158,20 @@ constraints:
   - No static/global state
   - No hidden magic (reflection-heavy logic discouraged)
   - System must run locally with zero external dependencies
+
+agents:
+  directory: .agents/
+  description: |
+    Reusable AI agents for this project. Each agent is a standalone markdown file
+    compatible with Claude Code, Cursor, Windsurf, Codex, and any LLM with tool access.
+    Invoke via slash command (Claude Code) or by attaching the file as context.
+
+  stupid_user:
+    file: .agents/stupid-user.md
+    purpose: Simulate a non-technical user to audit frontend usability and catch UX issues
+    requires:
+      - mcp: "@playwright/mcp or chrome-devtools-mcp"
+    target_url: http://localhost:5000
+    invoke:
+      claude_code: /stupid-user
+      other_llms: "Attach .agents/stupid-user.md as context, then send: Run the stupid user agent."

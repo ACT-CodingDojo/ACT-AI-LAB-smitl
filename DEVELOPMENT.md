@@ -19,6 +19,7 @@
 DevPod automatically handles:
 - Node.js installation
 - `openspec` installation (`npm install -g @fission-ai/openspec@latest`)
+- Playwright + Chromium installation (required for AI browser agents)
 
 ---
 
@@ -33,6 +34,58 @@ If you prefer not to use DevPod:
    npm install -g @fission-ai/openspec@latest
    openspec --version
    ```
+
+---
+
+## MCP Servers (AI browser tools)
+
+This project includes pre-configured MCP servers for AI-assisted frontend testing (e.g. the `/stupid-user` agent).
+
+| Server | Purpose |
+|--------|---------|
+| `@playwright/mcp` | Primary — headless browser, works everywhere, auto-installs Chromium |
+| `chrome-devtools-mcp` | Optional — requires Chrome/Chromium installed on your machine |
+
+### DevPod (automatic)
+
+MCP servers are installed automatically during container creation. No action needed.
+
+### Manual setup
+
+If you are not using DevPod, follow the official setup guides:
+
+- [`@playwright/mcp` — Getting Started](https://playwright.dev/docs/getting-started-mcp)
+- [`chrome-devtools-mcp` — README](https://github.com/ChromeDevTools/chrome-devtools-mcp/blob/main/README.md)
+
+### AI tool config files
+
+MCP server configs are pre-committed for all major AI tools:
+
+| Tool | Config file |
+|------|-------------|
+| Claude Code | `.mcp.json` |
+| Cursor | `.cursor/mcp.json` |
+| VS Code / GitHub Copilot | `.vscode/mcp.json` |
+| Windsurf | `.windsurf/mcp.json` |
+
+No additional setup required — your AI tool will pick up the config automatically on project open.
+
+> **Note:** `chrome-devtools-mcp` requires Chrome or Chromium installed on your local machine and is optional.
+> `@playwright/mcp` is the recommended server and works out of the box in all environments.
+
+---
+
+## AI Agents
+
+This project includes reusable AI agents under `.agents/`:
+
+| Agent | File | Invoke |
+|-------|------|--------|
+| Stupid User (sommelier) | `.agents/stupid-user.md` | Claude Code: `/stupid-user` · Others: attach file as context |
+
+The **stupid-user** agent simulates **Roberto**, a master sommelier with zero tech skills.
+It navigates the frontend as a confused non-technical user while also validating wine suggestions from a domain expert perspective.
+Requires `@playwright/mcp` (see MCP Servers section above).
 
 ---
 

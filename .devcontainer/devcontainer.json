@@ -1,7 +1,7 @@
 {
   "name": "AI Lab - Scrum Master in the Loop",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
-  "postCreateCommand": "npm install -g @fission-ai/openspec@latest",
+  "postCreateCommand": "npm install -g @fission-ai/openspec@latest playwright @playwright/mcp && npx playwright install chromium --with-deps",
   "customizations": {
     "vscode": {
       "extensions": [
