@@ -12,7 +12,7 @@
 2. Install VS Code: https://code.visualstudio.com/download
 3. Open the project in DevPod:
    ```
-   devpod up https://github.com/<org>/act-ai-lab-smitl --ide vscode
+   devpod up https://github.com/ACT-CodingDojo/ACT-AI-LAB-smitl.git --ide vscode
    ```
    Alternatively, use the DevPod GUI and paste the repository URL.
 
