@@ -25,6 +25,7 @@
 .vscode/
 .history/
 *.code-workspace
+!.vscode/mcp.json
 
 # User-specific files
 *.swp
