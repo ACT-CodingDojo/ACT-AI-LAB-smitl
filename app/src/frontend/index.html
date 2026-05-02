@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AiSomellier</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel">
+        <h1>AiSomellier</h1>
+        <p class="subtitle">Carica una foto del piatto e ottieni 3 suggerimenti di vino italiano.</p>
+
+        <form id="recommendation-form">
+          <label>
+            Foto del piatto (obbligatoria)
+            <input type="file" name="image" accept="image/*" capture="environment" required />
+          </label>
+
+          <label>
+            Contesto testuale (opzionale)
+            <textarea name="contextText" rows="3" placeholder="Es: cena informale, piatto di pesce, stagione estiva"></textarea>
+          </label>
+
+          <label>
+            Vocale (opzionale)
+            <input type="file" name="audio" accept="audio/*" />
+          </label>
+
+          <button type="submit">Suggerisci vino</button>
+        </form>
+      </section>
+
+      <section class="panel" id="results-panel">
+        <h2>Risultati</h2>
+        <p id="status">In attesa di input.</p>
+        <div id="advisory" class="advisory hidden"></div>
+
+        <article id="top-pick" class="card top hidden"></article>
+
+        <div class="alternatives">
+          <article id="alt-1" class="card hidden"></article>
+          <article id="alt-2" class="card hidden"></article>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

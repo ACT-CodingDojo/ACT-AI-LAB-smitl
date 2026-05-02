@@ -105,6 +105,12 @@ appsettings.*.json
 *.temp
 *.log
 
+# Node.js
+node_modules/
+**/node_modules/
+.env
+.env.*
+
 # Always track openspec content
 !openspec/
 !openspec/**

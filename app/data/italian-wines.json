@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Vermentino di Gallura DOCG",
+    "category": "white",
+    "region": "Sardegna",
+    "classification": "DOCG",
+    "source": "MASAF",
+    "eAmbrosiaName": "Vermentino di Gallura"
+  },
+  {
+    "name": "Falanghina del Sannio DOC",
+    "category": "white",
+    "region": "Campania",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Falanghina del Sannio"
+  },
+  {
+    "name": "Pinot Grigio delle Venezie DOC",
+    "category": "white",
+    "region": "Veneto/Friuli",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Delle Venezie"
+  },
+  {
+    "name": "Soave Classico DOC",
+    "category": "white",
+    "region": "Veneto",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Soave"
+  },
+  {
+    "name": "Franciacorta DOCG",
+    "category": "sparkling",
+    "region": "Lombardia",
+    "classification": "DOCG",
+    "source": "MASAF",
+    "eAmbrosiaName": "Franciacorta"
+  },
+  {
+    "name": "Prosecco DOC",
+    "category": "sparkling",
+    "region": "Veneto/Friuli",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Prosecco"
+  },
+  {
+    "name": "Chianti Classico DOCG",
+    "category": "red",
+    "region": "Toscana",
+    "classification": "DOCG",
+    "source": "MASAF",
+    "eAmbrosiaName": "Chianti Classico"
+  },
+  {
+    "name": "Montepulciano d'Abruzzo DOC",
+    "category": "red",
+    "region": "Abruzzo",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Montepulciano d'Abruzzo"
+  },
+  {
+    "name": "Barbera d'Asti DOCG",
+    "category": "red",
+    "region": "Piemonte",
+    "classification": "DOCG",
+    "source": "MASAF",
+    "eAmbrosiaName": "Barbera d'Asti"
+  },
+  {
+    "name": "Valpolicella Ripasso DOC",
+    "category": "red",
+    "region": "Veneto",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Valpolicella Ripasso"
+  },
+  {
+    "name": "Primitivo di Manduria DOC",
+    "category": "red",
+    "region": "Puglia",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Primitivo di Manduria"
+  },
+  {
+    "name": "Nero d'Avola Sicilia DOC",
+    "category": "red",
+    "region": "Sicilia",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Sicilia"
+  },
+  {
+    "name": "Lambrusco Grasparossa di Castelvetro DOC",
+    "category": "sparkling",
+    "region": "Emilia-Romagna",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Lambrusco Grasparossa di Castelvetro"
+  },
+  {
+    "name": "Roero Arneis DOCG",
+    "category": "white",
+    "region": "Piemonte",
+    "classification": "DOCG",
+    "source": "MASAF",
+    "eAmbrosiaName": "Roero"
+  },
+  {
+    "name": "Etna Rosso DOC",
+    "category": "red",
+    "region": "Sicilia",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Etna"
+  },
+  {
+    "name": "Etna Bianco DOC",
+    "category": "white",
+    "region": "Sicilia",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Etna"
+  },
+  {
+    "name": "Moscato d'Asti DOCG",
+    "category": "dessert",
+    "region": "Piemonte",
+    "classification": "DOCG",
+    "source": "MASAF",
+    "eAmbrosiaName": "Moscato d'Asti"
+  },
+  {
+    "name": "Passito di Pantelleria DOC",
+    "category": "dessert",
+    "region": "Sicilia",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Pantelleria"
+  },
+  {
+    "name": "Trento DOC",
+    "category": "sparkling",
+    "region": "Trentino-Alto Adige",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Trento"
+  },
+  {
+    "name": "Verdicchio dei Castelli di Jesi DOC",
+    "category": "white",
+    "region": "Marche",
+    "classification": "DOC",
+    "source": "MASAF",
+    "eAmbrosiaName": "Verdicchio dei Castelli di Jesi"
+  }
+]
