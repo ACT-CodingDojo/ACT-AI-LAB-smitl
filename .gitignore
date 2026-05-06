@@ -109,3 +109,7 @@ appsettings.*.json
 !openspec/
 !openspec/**
 !openspec/**/*.md
+
+.env
+.env.example
+.env.local

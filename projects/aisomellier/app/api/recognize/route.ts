@@ -42,14 +42,28 @@ export async function POST(request: NextRequest) {
 3. Preparation style (e.g., grilled, boiled, fried, raw)
 4. Cuisine type (e.g., Italian, Asian, Mediterranean)
 
-Format your response as JSON with keys: dish_name, ingredients (array), preparation_style, cuisine_type
+Format your response as JSON only with keys: dish_name, ingredients (array), preparation_style, cuisine_type
 
-If the image doesn't contain food or is unclear, respond with:
+If the image doesn't contain food or is unclear, respond with exactly:
 {"error": "Unable to identify food in the image"}
 `
 
-    // Convert base64 to Uint8Array
-    const imageBuffer = Buffer.from(body.imageData.split(',')[1], 'base64')
+    const imageDataParts = body.imageData.split(',')
+    const base64Data = imageDataParts.length === 2 ? imageDataParts[1] : body.imageData
+    if (!base64Data) {
+      return NextResponse.json(
+        { error: 'Invalid imageData format' },
+        { status: 400 }
+      )
+    }
+
+    const imageBuffer = Buffer.from(base64Data, 'base64')
+    if (imageBuffer.length === 0) {
+      return NextResponse.json(
+        { error: 'Invalid image data' },
+        { status: 400 }
+      )
+    }
 
     const response = await model.generateContent([
       {
@@ -66,17 +80,33 @@ If the image doesn't contain food or is unclear, respond with:
     ])
 
     const text = response.response.text()
-
-    // Parse JSON response
-    const jsonMatch = text.match(/\{[\s\S]*\}/)
-    if (!jsonMatch) {
+    if (!text || !text.trim()) {
+      console.error('Recognition empty response:', text)
       return NextResponse.json(
-        { error: 'Failed to parse recognition response' },
+        { error: 'Empty recognition response from model' },
         { status: 500 }
       )
     }
 
-    const result: RecognitionResponse = JSON.parse(jsonMatch[0])
+    const jsonMatch = text.match(/\{[\s\S]*\}/)
+    if (!jsonMatch) {
+      console.error('Recognition parse failed, raw response:', text)
+      return NextResponse.json(
+        { error: 'Failed to parse recognition response', details: 'Raw model output logged on server' },
+        { status: 500 }
+      )
+    }
+
+    let result: RecognitionResponse
+    try {
+      result = JSON.parse(jsonMatch[0])
+    } catch (parseError) {
+      console.error('Recognition JSON parse error:', parseError, 'raw response:', text)
+      return NextResponse.json(
+        { error: 'Failed to parse recognition response', details: 'Raw model output logged on server' },
+        { status: 500 }
+      )
+    }
 
     if (result.error) {
       return NextResponse.json(
@@ -88,8 +118,9 @@ If the image doesn't contain food or is unclear, respond with:
     return NextResponse.json(result)
   } catch (error) {
     console.error('Recognition error:', error)
+    const errorMessage = error instanceof Error ? error.message : String(error)
     return NextResponse.json(
-      { error: 'Failed to recognize food in image' },
+      { error: 'Failed to recognize food in image', details: errorMessage },
       { status: 500 }
     )
   }
